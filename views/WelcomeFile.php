@@ -1,39 +1,10 @@
 <!doctype html>
 <html lang = "en">
-    <style>
-        ti{
-            font-size: 70px;
-        }
-        .custom-navbar {
-            background-color: white !important;
-            border: 1px solid black;
-            border-radius:15px;
-            padding:10px;
-            
-        }
-        .fondo-imagen {
-            background-image: url('../imagenes/fondo.png');
-            background-size: cover;         
-            background-position: center;    
-            background-repeat: no-repeat;   
-            width: 100%;
-            height: 65px;                  
-        }
-        
-        img {
-            width: 350px;
-            height: auto;
-        }
-        .img-large {
-            width: 600px;
-            height: auto;
-        }
-
-    </style>
-     <head>
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <Title>CrismileMx</Title>
+        <link rel="stylesheet" href="style.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     </head>
     <body>
@@ -41,24 +12,17 @@
             <div class="container">
                 <div class="row">
                     <div class="col" style="text-align: left">
-                         CrismileMx
+                        <a href="WelcomeFile.php" class="btn btn-primary btn-sm" style="background-color: palevioletred; color: white; border-color: palevioletred; font-size: 2rem">
+                            CrismileMx
+                        </a>
                     </div>
                     <div class="col" style="text-align: right">
-                        <a href="#nuestros-servicios" class="btn btn-primary btn-sm" style="background-color: palevioletred; color: black; border-color: palevioletred;">
-                            Nuestros Servicios
-                        </a>
                         <a href="Register.php" class="btn btn-primary btn-sm" style="background-color: white; color: palevioletred; border-color: palevioletred;">
                             Hazte una cuenta
                         </a>
 
                         <a href="Login.php" class="btn btn-primary btn-sm" style="background-color: white; color: palevioletred; border-color: palevioletred;">
                             Inicia Sesion
-                        </a>
-                        <a href="WelcomeFile.php" style="color: white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-house-dash" viewBox="0 0 16 16">
-                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 1 1 0-1"/>
-                                <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.708L8 2.207l-5 5V13.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 2 13.5V8.207l-.646.647a.5.5 0 1 1-.708-.708z"/>
-                            </svg>
                         </a>
                     </div>
                 </div>
@@ -108,34 +72,54 @@
                     </div>
                 </div>
             </div>
-            <div class="container text-center">
-                <div class="row ">
-                    <div class="col">
-                        <img src="../imagenes/xv.jpg" class="img-thumbnail img img-fluid"> <br>
-                        <h3 style="padding-top:10px;">Fotos para XV años</h3>
+            <div class="container">
+                <div class="item1" style="text-align: center;">
+
+                    <div class="div-imagen">
+                        <a href="xv.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/xv.jpg" class="img-thumbnail img img-fluid desvanecer"> 
+                        </a>
+                        <div class="texto-inferior" >Ver más información acerca de Fotos de quinceañeras</div>
                     </div>
-                    <div class="col">
-                        <img src="../imagenes/boda.jpeg" class="img-thumbnail img img-fluid"> <br>
-                        <h3 style="padding-top:10px;">Fotos para bodas</h3>
+
+                    <div class="div-imagen">
+                        <a href="boda.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/boda.jpeg" class="img-thumbnail img img-fluid desvanecer">
+                        </a>
+                        <div class="texto-inferior">Ver más información acerca de Fotos de bodas</div>
                     </div>
-                    <div class="col">
-                        <img src="../imagenes/bautiza.jpg" class="img-thumbnail img img-fluid"> <br>
-                        <h3 style="padding-top:10px;">Fotos para bautizos</h3>
+
+                    <div class="div-imagen">
+                        <a href="bautizo.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/bautiza.jpg" class="img-thumbnail img img-fluid desvanecer">
+                        </a>
+                        <div class="texto-inferior">Ver más información acerca de Fotos de bautizos</div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <img src="../imagenes/evento.jpeg" class="img-thumbnail img-large img-fluid"> <br>
-                        <h3 style="padding-top:10px;">Fotos para eventos</h3>
+
+                    <div class="div-imagen">
+                        <a href="evento.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/evento.jpeg" class="img-thumbnail img-large img-fluid desvanecer">
+                        </a>
+                        <div class="texto-inferior">Ver más información acerca de Fotos de eventos</div>
                     </div>
-                    <div class="col">
-                        <img src="../imagenes/graduar.jpg" class="img-thumbnail img-large img-fluid"> <br>
-                        <h3 style="padding-top:10px;">Fotos para Graduaciones</h3>
+
+                    <div class="div-imagen">
+                        <a href="graduacion.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/graduar.jpg" class="img-thumbnail img-large img-fluid desvanecer">
+                        </a>
+                        <div class="texto-inferior">Ver más información acerca de Fotos de graduaciones</div>
                     </div>
+                    <div class="div-imagen">
+                        <a href="madres.html" style="text-decoration: none; color: inherit; position: relative; display: inline-block;">
+                            <img src="../imagenes/sesionMadres.jpeg" class="img-thumbnail img-large img-fluid desvanecer">
+                        </a>
+                        <div class="texto-inferior">Ver más información acerca de Fotos del dia de las madres</div>
+                    </div>
+
                 </div>
             </div>
         </div>
-        
+    </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>

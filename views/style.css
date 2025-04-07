@@ -1,0 +1,87 @@
+ti{
+    font-size: 70px;
+}
+.custom-navbar {
+    background-color: white !important;
+    border: 1px solid black;
+    border-radius:15px;
+    padding:10px;
+    
+}
+.fondo-imagen {
+    background-image: url('../imagenes/fondo.png');
+    background-size: cover;         
+    background-position: center;    
+    background-repeat: no-repeat;   
+    width: 100%;
+    height: 65px;                  
+}
+.contenido {
+    position: relative; /* Mantiene la posición relativa para el texto */
+    padding: 10px; /* Asegura que el padding aplique a todo el contenido */
+    background: white; /* Opcional si quieres que el padding tenga color de fondo */
+    border-radius: 10px; /* Opcional para un efecto más estético */
+    
+}
+
+img {
+    width: 350px;
+    height: auto;
+}
+.img-large {
+    width: 600px;
+    height: auto;
+}
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+.div-imagen > div {
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+    padding:10px;
+    margin:0;
+    
+}
+.div-imagen {
+    position: relative;
+    display: inline-block;
+    border-radius: 15px;
+    overflow: hidden;
+    max-width: 600px; /* Ajusta esto según el tamaño deseado */
+}
+
+.div-imagen img {
+    width: 100%; /* Ajusta al contenedor sin desbordarse */
+    max-width: 600px; /* Evita que crezca demasiado */
+    height: auto; /* Mantiene la proporción original */
+    display: block;
+    border-radius: 15px;
+}
+.desvanecer:hover {
+    opacity: 0.3;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    -ms-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+.texto-inferior {
+    width: 100%;
+    height: 98.5%;
+    background: palevioletred;
+    color: white;
+    font-size: 1.8rem;
+    text-align: center;
+    padding: 10px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    
+    /* Centrar el texto completamente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
