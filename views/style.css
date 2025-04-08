@@ -85,3 +85,6 @@ img {
     align-items: center;
     justify-content: center;
 }
+.table thead th {
+    border-bottom: none !important;
+  }

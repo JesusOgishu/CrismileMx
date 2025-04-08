@@ -41,21 +41,22 @@
                 <div class="row">
                     <nav class="navbar navbar-expand-lg custom-navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="#">Navbar</a>
+                            <a class="navbar-brand" href="#">Fotografia</a>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                        <a class="nav-link active" aria-current="page" href="#">Cotizaciones</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">Link</a>
+                                        <a class="nav-link active" aria-current="page" href="#">Videos</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                                        <a class="nav-link active" aria-current="page" href="#">Maquillaje y peinados</a>
                                     </li>
+                                    
                                 </ul>
                                 <form class="d-flex" role="search">
                                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -65,9 +66,39 @@
                         </div>
                     </nav>
                 </div>
+                <div class="container mt-4">
+                    <table class="table" style="border-radius: 15px; overflow: hidden; border: none;">
+                    <thead>
+                        <tr>
+                        <th scope="col" class="text-center fs-2" style="background-color: #ffc0cb;">
+                            Crismile Studio
+                        </th>
+                        <th scope="col" class="text-center fs-2" style="background-color: #ffc0cb;">
+                            Misión
+                        </th>
+                        <th scope="col" class="text-center fs-2" style="background-color: #ffc0cb;">
+                            Nuestros Servicios
+                        </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="text-justify" style="font-size: 1.8rem; line-height: 1.6;">
+                            Es una comprometida empresa con la aplicación del arte clásico y contemporáneo, dejando una huella única en cada persona. Se crea desde un concepto hasta la representación del mismo.
+                        </td>
+                        <td class="text-justify" style="font-size: 1.8rem; line-height: 1.6;">
+                            Crear experiencias únicas a través del arte clásico y contemporáneo, desde la idea hasta su realización.
+                        </td>
+                        <td class="text-justify" style="font-size: 1.8rem; line-height: 1.6;">
+                            Nos especializamos en la captura fotográfica, producción de sets, grabación de videos, edición de imágenes, así como en servicios de maquillaje y peinado.
+                        </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
                 <div class="row" style="text-align: left" id="nuestros-servicios">
                     <div class="col" >
-                        <h3 style="padding-top: 20px;">Nuestros servicios</h3>
+                        <h3 style="padding-top: 20px;">Toma de fotografias</h3>
                         <p>Diferentes tipos de fotografias a su necesidad</p>
                     </div>
                 </div>
