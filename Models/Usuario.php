@@ -6,6 +6,7 @@
         var $contrasena;
 
         function guardar(){
+            //guardar usuario
             include_once("../Models/Conexion.php");
             $con=new Conexion();
             $conexion=$con->conectar();
@@ -13,20 +14,20 @@
             $stmt=$conexion->prepare($query);
             return $stmt->execute();
         }
-        // Función para validar el login
+        // validar login
         function loginUsuario($nombreUsuario, $inputPassword) {
             include_once("Conexion.php");
             $con = new Conexion();
             $conexion = $con->conectar();
         
-            // Se obtiene todos los registros de usuario
+            // query pa los registros de usuario
             $query = "SELECT * FROM usuario";
             $stmt = $conexion->prepare($query);
             $stmt->execute();
             $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             $foundUser = null;
-            // Iteramos para encontrar el usuario que coincide con el nombre ingresado
+            // buscar usuario
             foreach($usuarios as $usuario) {
                 if($usuario['nombre_usuario'] === $nombreUsuario) {
                     $foundUser = $usuario;
@@ -34,11 +35,11 @@
                 }
             }
         
-            // Si no se encontró el usuario
+            // error 1 el usuario no existe
             if ($foundUser == null) {
                 return array("status" => false, "error" => "Usuario incorrecto");
             } else {
-                // Si el usuario existe, se compara la contraseña
+                // Si el usuario existe y tiene mal la contra
                 if($foundUser['contrasena'] !== $inputPassword) {
                     return array("status" => false, "error" => "Contraseña incorrecta");
                 } else {
