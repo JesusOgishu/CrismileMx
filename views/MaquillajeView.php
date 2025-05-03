@@ -38,6 +38,7 @@ $maquillajes = $maquillaje->obtenerTodos();
                         <th>Tipo</th>
                         <th>Descripción</th>
                         <th>Precio</th>
+                        <th>Acciones</th> <!-- Nueva columna para acciones -->
                     </tr>
                 </thead>
                 <tbody>
@@ -47,11 +48,17 @@ $maquillajes = $maquillaje->obtenerTodos();
                             <td><?= htmlspecialchars($item["tipo"]) ?></td>
                             <td><?= htmlspecialchars($item["descripcion"]) ?></td>
                             <td>$<?= number_format($item["precio"], 2) ?></td>
+                            <td class="text-center">
+                                <form action="../Controllers/MaquillajeController.php" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este maquillaje?');" style="display:inline;">
+                                    <input type="hidden" name="id_eliminar" value="<?= $item['id'] ?>">
+                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                     <?php if (count($maquillajes) === 0): ?>
                         <tr>
-                            <td colspan="4" class="text-center">No hay maquillaje registrado</td>
+                            <td colspan="5" class="text-center">No hay maquillaje registrado</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

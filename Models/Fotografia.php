@@ -25,5 +25,15 @@ class Fotografia {
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    function eliminar($id) {
+        include_once("Conexion.php");
+        $con = new Conexion();
+        $conexion = $con->conectar();
+
+        $query = "DELETE FROM fotografia WHERE id = :id;";
+        $stmt = $conexion->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
 ?>

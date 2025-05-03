@@ -1,5 +1,9 @@
 <?php
-  session_start(); // Inicia la sesión en caso de que aún no se haya iniciado
+session_start();
+if (!isset($_SESSION["usuario"])) {
+  header("Location: WelcomeFile.php");
+  exit;
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -10,7 +14,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-
     <style>
       html {
         scroll-behavior: smooth;
@@ -23,20 +26,13 @@
       <div class="container">
         <div class="row">
           <div class="col text-start">
-            <a href="WelcomeFileLogueado.php" class="btn btn-primary btn-sm btn-brand">
-              CrismileMx
-            </a>
+            <a href="WelcomeFileLogueado.php" class="btn btn-primary btn-sm btn-brand">CrismileMx</a>
           </div>
           <div class="col text-end">
-            <?php
-              // Verifica si el usuario está autenticado.
-              if (isset($_SESSION["usuario"])) {
-                echo "<span style='font-weight: bold; font-size: 1.4rem'>Hola, " . htmlspecialchars($_SESSION["usuario"]["nombre_usuario"]) . "</span>";
-              } else {
-                echo '<a href="Login.php" class="btn btn-primary btn-sm btn-secondary-custom">Inicia Sesion</a>';
-              }
-            ?>
-            
+            <span style="font-weight: bold; font-size: 1.4rem; margin-right: 10px;">
+              Hola, <?= htmlspecialchars($_SESSION["usuario"]["nombre_usuario"]) ?>
+            </span>
+            <a href="../Controllers/Logout.php" class="btn btn-danger btn-sm">Cerrar sesión</a>
           </div>
         </div>
         <div class="row">ㅤ</div>
@@ -53,6 +49,7 @@
     <!-- Contenido principal -->
     <div class="fondo-imagen">
       <div class="container">
+
         <!-- Navbar -->
         <div class="row">
           <nav class="navbar navbar-expand-lg custom-navbar">
@@ -152,6 +149,7 @@
             <div class="texto-inferior">Ver más información acerca de Maquillaje.</div>
           </div>
         </div>
+
       </div>
     </div>
 

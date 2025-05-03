@@ -2,21 +2,32 @@
 include_once("../Models/Maquillaje.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nuevo = new Maquillaje();
-    $nuevo->tipo = $_POST["tipo"];
-    $nuevo->descripcion = $_POST["descripcion"];
-    $nuevo->precio = $_POST["precio"];
+    $maquillaje = new Maquillaje();
 
-    $resultado = $nuevo->guardar();
-    
-    if ($resultado) {
-        // Redirige a la vista si se guarda correctamente
+    // Verificar si es una solicitud de eliminación
+    if (isset($_POST['id_eliminar'])) {
+        $id = $_POST['id_eliminar'];
+        $resultado = $maquillaje->eliminar($id);
+
+        // Redirigir de vuelta a la vista
         header("Location: ../views/MaquillajeView.php");
         exit;
-    } else {
-        // Redirige a la vista con un mensaje de error si falla
-        header("Location: ../views/MaquillajeView.php?error=1");
-        exit;
+    }
+
+    // Si no es eliminación, intentamos guardar un nuevo registro
+    if (isset($_POST["tipo"], $_POST["descripcion"], $_POST["precio"])) {
+        $maquillaje->tipo = $_POST["tipo"];
+        $maquillaje->descripcion = $_POST["descripcion"];
+        $maquillaje->precio = $_POST["precio"];
+
+        $resultado = $maquillaje->guardar();
+
+        if ($resultado) {
+            header("Location: ../views/MaquillajeView.php");
+            exit;
+        } else {
+            header("Location: ../views/MaquillajeView.php?error=1");
+            exit;
+        }
     }
 }
-?>

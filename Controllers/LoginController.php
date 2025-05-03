@@ -7,7 +7,11 @@ if (isset($_POST['nombreUsuario']) && isset($_POST['InputPassword'])) {
 
     // Verificación especial para el usuario administrador
     if ($nombreUsuario === "Admin" && $InputPassword === "admin1234") {
-        $_SESSION["usuario"] = "Admin";
+        // Guardar los datos del admin en la sesión como un array asociativo
+        $_SESSION["usuario"] = [
+            "nombre_usuario" => "Admin",
+            "rol" => "admin"
+        ];
         header("Location: ../views/AdminView.php");
         exit;
     }
