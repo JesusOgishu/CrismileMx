@@ -16,7 +16,7 @@
     $usuario->contrasena = $passwordUsuario;
 
     if($usuario->guardar() == 1){
-        header("location: ../views/WelcomeFile.php");
+        header("location: ../views/Login.php");
      }else{
         echo "Error al guardar, comunicarse con sistemas, gracias.";
     }

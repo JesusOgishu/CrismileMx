@@ -1,29 +1,74 @@
-ti{
+/* ======================================================================
+   REGLAS GLOBALES
+====================================================================== */
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
     font-size: 70px;
 }
+
+/* ======================================================================
+   NAVEGACIÓN Y ENCABEZADOS
+====================================================================== */
+
+/* Barra de navegación personalizada */
 .custom-navbar {
     background-color: white !important;
     border: 1px solid black;
-    border-radius:15px;
-    padding:10px;
-    
-}
-.fondo-imagen {
-    background-image: url('../imagenes/fondo.png');
-    background-size: cover;         
-    background-position: center;    
-    background-repeat: no-repeat;   
-    width: 100%;
-    height: 65px;                  
-}
-.contenido {
-    position: relative; /* Mantiene la posición relativa para el texto */
-    padding: 10px; /* Asegura que el padding aplique a todo el contenido */
-    background: white; /* Opcional si quieres que el padding tenga color de fondo */
-    border-radius: 10px; /* Opcional para un efecto más estético */
-    
+    border-radius: 15px;
+    padding: 10px;
 }
 
+/* Encabezado principal */
+.header {
+    background-color: palevioletred;
+    color: white;
+    padding: 1%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Botón de marca (usado en el encabezado) */
+.btn-brand {
+    background-color: palevioletred;
+    color: white;
+    border-color: palevioletred;
+    font-size: 2rem;
+}
+
+
+/* Botón secundario (para acciones como "Inicia Sesion" o "Hazte una cuenta") */
+.btn-secondary-custom {
+    background-color: white;
+    color: palevioletred;
+    border-color: palevioletred;
+}
+
+/* Botón del formulario (en Register) */
+.btn-custom {
+    background-color: palevioletred;
+    color: white;
+    border-color: palevioletred;
+}
+
+
+/* ======================================================================
+   IMÁGENES Y CONTENEDORES DE IMÁGENES
+====================================================================== */
+
+/* Fondo de imagen con ajustes de background */
+.fondo-imagen {
+    background-image: url('../imagenes/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 65px;
+}
+
+/* Regla para las imágenes generales y de tamaño grande */
 img {
     width: 350px;
     height: auto;
@@ -32,35 +77,44 @@ img {
     width: 600px;
     height: auto;
 }
-*{
-    margin:0;
-    box-sizing: border-box;
+
+/* Contenedor para el contenido */
+.contenido {
+    position: relative; /* Para posicionar elementos internos de forma relativa */
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
 }
 
-.div-imagen > div {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:-1;
-    padding:10px;
-    margin:0;
-    
-}
+/* Contenedor para imágenes (galerías, etc.) */
 .div-imagen {
     position: relative;
     display: inline-block;
     border-radius: 15px;
     overflow: hidden;
-    max-width: 600px; /* Ajusta esto según el tamaño deseado */
+    max-width: 600px;
 }
 
+/* Regla para imágenes dentro de .div-imagen */
 .div-imagen img {
-    width: 100%; /* Ajusta al contenedor sin desbordarse */
-    max-width: 600px; /* Evita que crezca demasiado */
-    height: auto; /* Mantiene la proporción original */
+    width: 100%;
+    max-width: 600px;
+    height: auto;
     display: block;
     border-radius: 15px;
 }
+
+/* Elementos hijos dentro de .div-imagen (si necesitas posicionar fondos o similares) */
+.div-imagen > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Efecto hover para desvanecer imágenes */
 .desvanecer:hover {
     opacity: 0.3;
     -webkit-transition: opacity 500ms;
@@ -69,9 +123,52 @@ img {
     -ms-transition: opacity 500ms;
     transition: opacity 500ms;
 }
+
+/* ======================================================================
+   TABLAS Y CONTENIDO TABULAR
+====================================================================== */
+
+/* Remover borde inferior de los th en thead (Bootstrap override) */
+.table thead th {
+    border-bottom: none !important;
+}
+
+/* Tabla personalizada */
+.custom-table {
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+}
+
+/* Celda de cabecera de la tabla */
+.table-header {
+    background-color: #ffc0cb !important;
+}
+
+/* Texto de las celdas de la tabla (cuerpo) */
+.table-body-text {
+    padding: 30px !important; 
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ======================================================================
+   ENLACES E INTERACCIONES
+====================================================================== */
+
+/* Enlaces que envuelven las imágenes: sin decoraciones y posicionados de forma relativa */
+.img-link {
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    display: inline-block;
+}
+
+/* Texto inferior en imágenes (generalmente sobreimpreso) */
 .texto-inferior {
     width: 100%;
-    height: 98.5%;
+    height: 94%;
     background: palevioletred;
     color: white;
     font-size: 1.8rem;
@@ -85,6 +182,56 @@ img {
     align-items: center;
     justify-content: center;
 }
-.table thead th {
-    border-bottom: none !important;
-  }
+
+/* ======================================================================
+   OTROS
+====================================================================== */
+
+/* Espaciado para títulos de secciones */
+.section-heading {
+    padding-top: 20px;
+}
+
+/* Contenedor para elementos agrupados (por ejemplo, galerías de imágenes) */
+.item1 {
+    text-align: center;
+}
+/* Estilos para hover y focus de botones personalizados */
+
+/* Botón de marca y botones del formulario */
+.btn-brand:hover,
+.btn-brand:focus,
+.btn-custom:hover,
+.btn-custom:focus {
+    background-color: palevioletred !important;  /* Ajusta este tono si quieres un hover más oscuro o claro */
+    color: white !important;
+    border-color: white !important;
+}
+
+/* Botón secundario personalizado */
+.btn-secondary-custom:hover,
+.btn-secondary-custom:focus {
+    background-color: whitesmoke !important;  /* Ajusta este tono si quieres un hover más oscuro o claro */
+    color: palevioletred !important;
+    border-color: white !important;
+}
+/* ======================================================================
+   TEXTOS
+====================================================================== */
+/* Titulo */
+#main-title{
+    font-size: 4rem;
+}
+/* Texto en el navbar */
+.navbar-nav .nav-link {
+    font-size: 1rem !important;
+}
+p{
+    font-size: 1rem;
+}
+.form-label{
+    font-size: 1.2rem;
+}
+.form-text{
+    font-size: 0.8rem;
+}
