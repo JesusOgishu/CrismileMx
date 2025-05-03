@@ -1,51 +1,65 @@
-<?php
-    Class Usuario{
-        var $id;
-        var $nombre_usuario;
-        var $email;
-        var $contrasena;
+¿<?php
+class Usuario {
+    var $id;
+    var $nombre_usuario;
+    var $email;
+    var $contrasena;
 
-        function guardar(){
-            //guardar usuario
-            include_once("../Models/Conexion.php");
-            $con=new Conexion();
-            $conexion=$con->conectar();
-            $query= "INSERT INTO usuario (nombre_usuario,email,contrasena) values('$this->nombre_usuario','$this->email','$this->contrasena');";
-            $stmt=$conexion->prepare($query);
-            return $stmt->execute();
-        }
-        // validar login
-        function loginUsuario($nombreUsuario, $inputPassword) {
-            include_once("Conexion.php");
-            $con = new Conexion();
-            $conexion = $con->conectar();
-        
-            // query pa los registros de usuario
-            $query = "SELECT * FROM usuario";
-            $stmt = $conexion->prepare($query);
-            $stmt->execute();
-            $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    function guardar() {
+        include_once("Conexion.php");
+        $con = new Conexion();
+        $conexion = $con->conectar();
 
-            $foundUser = null;
-            // buscar usuario
-            foreach($usuarios as $usuario) {
-                if($usuario['nombre_usuario'] === $nombreUsuario) {
-                    $foundUser = $usuario;
-                    break;
-                }
-            }
-        
-            // error 1 el usuario no existe
-            if ($foundUser == null) {
-                return array("status" => false, "error" => "Usuario incorrecto");
-            } else {
-                // Si el usuario existe y tiene mal la contra
-                if($foundUser['contrasena'] !== $inputPassword) {
-                    return array("status" => false, "error" => "Contraseña incorrecta");
-                } else {
-                    return array("status" => true, "user" => $foundUser);
-                }
-            }
+        $query = "INSERT INTO usuario (nombre_usuario, email, contrasena) 
+                  VALUES (:nombre_usuario, :email, :contrasena)";
+        $stmt = $conexion->prepare($query);
+        $stmt->bindParam(":nombre_usuario", $this->nombre_usuario);
+        $stmt->bindParam(":email", $this->email);
+        $stmt->bindParam(":contrasena", $this->contrasena); // Considera usar hash para seguridad
+        return $stmt->execute();
+    }
+
+    function loginUsuario($nombreUsuario, $inputPassword) {
+        include_once("Conexion.php");
+        $con = new Conexion();
+        $conexion = $con->conectar();
+
+        $query = "SELECT * FROM usuario WHERE nombre_usuario = :nombre";
+        $stmt = $conexion->prepare($query);
+        $stmt->bindParam(":nombre", $nombreUsuario);
+        $stmt->execute();
+
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$usuario) {
+            return array("status" => false, "error" => "Usuario incorrecto");
+        } else if ($usuario["contrasena"] !== $inputPassword) {
+            return array("status" => false, "error" => "Contraseña incorrecta");
+        } else {
+            return array("status" => true, "user" => $usuario);
         }
     }
+
+    function obtenerTodos() {
+        include_once("Conexion.php");
+        $con = new Conexion();
+        $conexion = $con->conectar();
+
+        $query = "SELECT id, nombre_usuario, email FROM usuario";
+        $stmt = $conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function eliminar($id) {
+        include_once("Conexion.php");
+        $con = new Conexion();
+        $conexion = $con->conectar();
+
+        $query = "DELETE FROM usuario WHERE id = :id";
+        $stmt = $conexion->prepare($query);
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+}
 ?>
